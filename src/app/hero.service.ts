@@ -6,7 +6,7 @@ import { HEROES } from './mock-heroes';
 export class HeroService {
 
   constructor() { }
-  getHeroes(): Hero[] {
-    return HEROES;
+  getHeroes(): Promise<Hero[]> {
+    return Promise.resolve(HEROES);
   }
 }

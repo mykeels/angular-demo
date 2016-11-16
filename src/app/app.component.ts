@@ -12,15 +12,15 @@ import { HeroService } from './hero.service'
 export class AppComponent {
   constructor(private heroService: HeroService) {}
   ngOnInit(): void {
-    this.heroes = this.getHeroes();
+    this.getHeroes();
   }
   title = 'Tour of Heroes!';
   selectedHero: Hero;
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   };
-  getHeroes(): Hero[] {
-    return this.heroService.getHeroes();
+  getHeroes(): void {
+    this.heroService.getHeroes().then((heroes) => this.heroes = heroes);
   }
   heroes: Hero[];
 }
